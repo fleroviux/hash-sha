@@ -80,7 +80,7 @@ inline std::uint32_t lower_sigma_1(std::uint32_t x) {
 }
 } // namespace detail
 
-void init(std::uint32_t state[8]) {
+inline void init(std::uint32_t state[8]) {
   state[0] = 0x6a09e667;
   state[1] = 0xbb67ae85;
   state[2] = 0x3c6ef372;
@@ -91,7 +91,7 @@ void init(std::uint32_t state[8]) {
   state[7] = 0x5be0cd19;
 }
 
-void block(std::uint32_t state[8], std::uint32_t block[16]) {
+inline void block(std::uint32_t state[8], std::uint32_t block[16]) {
   std::uint32_t reg[8];
   std::uint32_t schedule[64];
 
@@ -123,7 +123,7 @@ void block(std::uint32_t state[8], std::uint32_t block[16]) {
   for (int i = 0; i < 8; i++) state[i] += reg[i];
 }
 
-void hash(std::uint8_t const* data, size_t length, std::uint8_t hash[32]) {
+inline void hash(std::uint8_t const* data, size_t length, std::uint8_t hash[32]) {
   std::uint32_t state[8];
   std::uint32_t block[16];
   std::uint64_t bitlength = length * 8ULL;
