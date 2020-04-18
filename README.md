@@ -2,6 +2,12 @@
 A simple implementation of SHA-256 in C++, providing low-level access to the block function.
 SHA-1 and SHA-224 implementations will follow.
 
+# Motivation
+
+hash-sha should be minimal and simple to use, only providing the bare minimum of functionality.
+At the same time accessing the internal hash state and streaming input blocks in,
+instead of providing all input at once, was a hard requirement for my Nintendo 3DS emulation project.
+
 # Usage
 
 To calculate the SHA-256 of a byte buffer call `sha256::hash` and pass the input byte buffer,
